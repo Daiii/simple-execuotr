@@ -42,7 +42,7 @@ public class ThreadPoolExecutor {
      */
     public void shutdown() {
         for (int i = 0; i < threadNum; i++) {
-            workerThreads[i].cancel();
+            workerThreads[i].sotp();
             workerThreads[i] = null;
         }
     }
@@ -96,7 +96,7 @@ public class ThreadPoolExecutor {
         /**
          * 取消工作
          */
-        public void cancel() {
+        public void sotp() {
             isRunning = false;
             interrupt();
         }
