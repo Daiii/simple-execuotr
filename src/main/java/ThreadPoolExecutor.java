@@ -6,17 +6,14 @@ import java.util.List;
 public class ThreadPoolExecutor {
 
     // 核心线程数
-    private int threadNum;
+    private volatile int threadNum;
     // 最大线程数
     // TODO 待实现
-    private int maxThreadNum;
+    private volatile int maxThreadNum;
     // 线程队列
-    private List<Runnable> queue;
+    private final List<Runnable> queue;
     // 工作线程
     private WorkerThread[] workerThreads;
-
-    private ThreadPoolExecutor() {
-    }
 
     public ThreadPoolExecutor(int threadNum, int maxThreadNum, List<Runnable> queue) {
         this.threadNum = threadNum;
